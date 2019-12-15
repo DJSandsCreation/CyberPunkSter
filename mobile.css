@@ -1,0 +1,237 @@
+/* so gonna get started with the the mobile version of the Web site, some styles are gonna vary whether it's a tablet or whether it's a smartphone, so basically for tablets I want this to be two columns, just two columns but on mobile on smartphones I want it to be stacked in one column, so let's handle the navigation first
+
+the navigation is going to be the same on tablet and mobile, in the html we already have a link to mobile CSS, so add mobile css and it  kicks in when the screen is 768 or less, so Im keeping original stylesheet open to use as a reference, one thing right off the bat that I want to do is to get rid of the social icons unless it's on larger than 768,
+
+let's put a comment the top, say navigation then take the main dash nav I.D. and target the class of social and let's set that to display none and save
+/* Navigation --
+#main-nav .social {
+  display: none;
+}
+that gets rid of it, it doesn't look bad,now this would probably be fine if you never planned on adding any other links if you just had  two links home and about but I don't like to do things that way I like to  plan it, I want to make it scalable basically.
+
+so gonna switch this around a little bit, lets take the navigation container, main dash NAV and container and let's set the grid template columns to just 1FR, basically just on top of each othe, also gonnas add grid gap, 1.2REM
+#main-nav .container {
+  grid-template-columns: 1fr;
+  grid-gap: 1.2rem;
+}
+now want the logo and menu to be centered,gonna take UL,say main dash nav you add which is the menu and gonna justify self to center, so that pushes it in the middle and then I think that's all I want to do with the UL so here
+#main-nav ul {
+  justify-self: center;
+}
+we had it justified self end in styleshee css which padded all the way over, now we have it in the middle, now the logo we want to do the same thing, what we can just add onto this main nav logo, that puts it in the middle
+#main-nav ul,
+#main-nav .logo {
+  justify-self: center;
+}
+for the link I wanna lessen the padding just a little bit., have it set to 0.75REM on css but I want to make this a little smaller so say main NAV and UL LI A change the padding o 0.50REM, makes it a little bit smaller, that's pretty much all we need to do for the menu
+#main-nav ul li a {
+  padding: 0.50rem;
+}
+you'll see as soon as we hit 768 it turns into settings we are working on  and it's still sticky of course
+
+for tablet size I want gthe showcase image, h1, texts to be the same, so gonna leave that for now not doing small smartphone devices ye, gonna leave this for now
+
+move on to the home articles area with all the mini articles and I want those to be in two  columns, so say home dash articles and it has an articles container which is our grid container and we're going to set grid dash template dash columns, so we have it on css like this,
+/* Home Articles 
+#home-articles .articles-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+so have it set to repeat 3 1FR, want it to say I'm going to say repeat 2 1FR
+#home-articles .articles-container {
+  grid-template-columns: repeat(2, 1fr);
+}
+now the first child, its not lookig good, so maybe get rid of the spans so grab the first child,say home articles and want to target articles container and want the immediate element, the immediate first child element and set grid template columns cuz remember the first and the last are also grids as you can see right here from stylesheet
+#home-articles .articles-container > *:first-child,
+#home-articles .articles-container > *:last-child {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  align-items: center;
+  grid-column: 1 / span 2;
+}
+ and they have grid template columns of 2 1FR, wanna just wanna set it to a single column, so just 1FR, then we want to clear the span cuz we're doing the span i original style, so gonna say grid dash column and just set it to 1 which is just the default, save that
+#home-articles .articles-container > *:first-child{
+  grid-template-columns: 1fr;
+  grid-column: 1;
+}
+so now the first one looks like the rest of them, do the same for the last one
+#home-articles .articles-container > *:first-child,
+#home-articles .articles-container > *:last-child {
+  grid-template-columns: 1fr;
+  grid-column: 1;
+}
+
+So we can actually just copy this and put a comma here and then change this to last child save that, so now we just have two columns, first and last are the same as the rest, I think that's that's good for the tablet, let's check it out, use our chrome tools and hit the little icon here for the devices and this would be an iPad, looks pretty good 
+but on smaller devices like let's choose iPhone X, it doesn't look right
+
+so lets deal with smaller devices, now in this mobile CSS I'm gonna add a media query so gonna say media and gonna do a max width of say 600px then anything we put in here is only going to pertain to anything under 600 pixels, 
+@media(max-width: 600px) {
+.... Stack Grid Items ....
+  }
+let's take what we need to stack, meaning I just want one column, say stack grid items and there's a few things I want to enabe that to control, one is gonna be the showcase container, let's see showcase in css
+#showcase .showcase-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+showcase container is set to grid template columns, repeat 2 1FR, want it to just be  1 FR so if we save now that goes all the way across there's some other things you want to stack such as the home articles, 
+say home ID Home Articles and we want the container/articles container and we want them to stack, save, looks pretty good
+@media(max-width: 600px) {
+  /* Stack Grid Items 
+  #showcase .showcase-container,
+  #home-articles .articles-container {
+    grid-template-columns: 1fr;
+  }
+the footer, too, want the footer items to stack.
+@media(max-width: 600px) {
+  /* Stack Grid Items 
+  #showcase .showcase-container,
+  #home-articles .articles-container,
+  #main-footer .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+go ahead and put a comma here and let's say main dash footer ut that didnt work, so I checked the original, ...  oh you know what it is it's the span the last child with span so we want to clear that up,let's take this the selector right here and put that in and let's grab the last child is what we span so say last child then we want to set the grid column 1 and save and now it stacks cuz if you have something spanning however many columns, four columns its gonna  adapt to whatever the amount of columns that you're spanning so we want to set and make sure that it's 1,
+#main-footer .footer-container > *:last-child {
+    grid-column: 1;
+  }
+another thing I want to the email newsletter area looks kind of really clumped together, so I want to add a make a border between the items,say main footer and take the footer container and let's say all items in the footer container, gonna add a border bottom of 4444 dotted 1px then some padding to seperate, so say padding dash border and let's set that to 1REM 
+  #main-footer .footer-container > *{
+    border-bottom: #444 dotted 1px;
+    padding-bottom: 1rem;
+  }
+as you can see now we have a border separating all of these with some padding now but between contact, the last one and the JOIN OUR CLUB doesn't looks funnyit looks like a double border really, so I want to remove that one and also want to remove the space under the BTN to join now, pretty easy to do just say main footer for our container and then let's say we want the item we want the last child, colon last child and then we also want just copy the third one down, use nth child
+#main-footer .footer-container > *:first-child
+
+#main-footer .footer-container > *:nth-child(3)
+
+just set border to none and save,now you can see that that border is gone and actually you know what we could  have done it the opposite way and just chose this first  child and child 2 and just added a border I guess that would be a better way to do it
+
+Yeah actually do it that way  it's less CSS and I'm not gonna cut this out so you can see mistakes, too .. 
+
+so instead of putting a border on all and then removing let's just pick out the first child so first dash child and then the nth child 2 and we'll add the border, if I save we just added the border under the news grid para and here instead of to all and uder the email newsletter
+much easier than removing, ..you know I could cut this all out and just redo it but I want you to see that there's different ways to do things and sometimes you only realize that when you're writing your code....
+#home-articles .articles-container > *:first-child,
+#home-articles .articles-container > *:last-child {
+  grid-template-columns: 1fr;
+  grid-column: 1;
+}
+we have left the page container and the home page but if we go to about page it doesn't look right, it's way too thin, want to stack it into one column, so let's take the page container in, say grid template columns 1FR so we're gonna stack it, I also want to align everything to the center on a really small screen so do text align center, that works
+  .page-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+But I do want to clear the row span cuz remember we do have a row span, if we look at CSS,look at the page contain a first child we have a grid row spanning
+.page-container > *:first-child {
+  grid-row: 1 / span 3;
+}
+so I'm going to just grab that and we're gonna set grid row just to one 
+.page-container > *:first-child {
+  grid-row: 1;
+}
+looks pretty good, our site is now complete, let's go ahead and check it out in the actual devices, open up our dev tools here, everything looks pretty good,footer is stacked, we have our two borders, that looks pretty good, let's check the about page, that's quite a bit of text there, we probably didn't need that much text but that's fine, let's see  the article page, looks pretty good if you want to stack the Flex items with the icon, hmm i might do that later, everything looks good.
+
+check the iPhone 5 which is sometimes hard to to make things look good but this is pretty good about page, what I should do is lessen the font size for the L heading on mobile devices.. .. 
+
+say l dash heading it was set to 3REM so setting it to 2REM, looks better, 
+
+so I have enjoyed this project, I learned quite a bit about CSS grid
+ */
+
+/* Navigation */
+@media(max-width: 578px) {
+#main-nav .social {
+  display: none;
+}
+
+#main-nav .container {
+  grid-template-columns: 1fr;
+  grid-gap: 1.2rem;
+}
+
+#main-nav ul,
+#main-nav .logo {
+  justify-self: center;
+}
+
+#main-nav ul li a {
+  padding: 0.50rem;
+}
+
+#home-articles .articles-container {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#home-articles .articles-container > *:first-child,
+#home-articles .articles-container > *:last-child {
+  grid-template-columns: 1fr;
+  grid-column: 1;
+}
+
+
+  /* Stack Grid Items */
+  #showcase .showcase-container,
+  #home-articles .articles-container,
+  #main-footer .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  #main-footer .footer-container > *:last-child,
+  #main-footer .footer-container > *:first-child,
+  #main-footer .footer-container > *:nth-child(2),
+  #home-articles .articles-container > *:nth-child(4),
+  #home-articles .articles-container > *:nth-child(9),
+  #home-articles .articles-container > *:nth-child(10),
+  #home-articles .articles-container > *:last-child {
+    grid-column: 1;
+  }
+  #about .page-container,
+  #main-footer .footer-container {
+    grid-column: 1;
+  }
+
+  #main-footer .footer-container > *:first-child,
+  #main-footer .footer-container > *:nth-child(2),
+  #home-articles .articles-container > *:last-child {
+    border-bottom: #444 dotted 1px;
+    padding-bottom: 1rem;
+  }
+
+  .page-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .page-container > *:first-child {
+    grid-row: 1;
+  }
+
+  .l-heading {
+    font-size: 2rem;
+  }
+  .m-heading {
+    font-size: 1rem;
+  }
+  .s-heading {
+    font-size: 0.5rem;
+  }
+  .category {
+    display: inline-block;
+    color: #fff;
+    font-size: 0.25rem;
+    text-transform: uppercase;
+    padding: 0.2rem 0.3rem;
+    border-radius: 10px;
+    margin-bottom: 0.2rem;
+  }
+
+  p {
+    font-size: smaller;
+  }
+  
+}

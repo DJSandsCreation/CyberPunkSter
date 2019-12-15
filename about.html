@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Staatliches" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" media="screen and (max-width: 768px)" href="mobile.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <title>CyberPunkSter</title>
+  <!-- HTML 1
+  gonna be using things from the index.html page we have done so,  the the nav bar the footer that stuff, gonna copy the whole index page and paste that in about and  gonna add it, change the title just about and let's remove the current
+        <li><a class="current" href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>  
+   -->
+</head>
+<body>
+  <nav id="main-nav">
+    <div class="container">
+      <div class="container">
+      <h6>Cyber PunkSter<i class="fas fa-fingerprint fa-3x"></i></h6>
+      </div>
+      <div class="social">
+        <a href="http://facebook.com" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="http://twitter.com" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="http://instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+        <a href="http://youtube.com" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a class="current" href="about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- HTML2
+not going to have a showcase, can actually get rid of everything in between the nav bar and the footer, save and go to about we just have the the header and the footer so this is basically your boilerplate for any other page you want to create on this Web site
+
+new  section, ID of about then inside gonna have a container case that's gonna align everything to the middle but then also gonna have
+a page container which is gonna be our grid container, so this page container we're gonna use on any inner pages, like the about page about , article.html if you wanted to create more pages we could use this
+as well, it's gonna create a grid layout so that we have a main area and then anything else we add will just be sidebar widgets thingy, 
+              <section id="about">
+                <div class="container">
+                  <div class="page-container">
+so in this page container, let's create our first grid item which is gonna be an article and gonna give this a class of card because we want to have that white background with the padding and do an H1 and gonna give us a class of L-heading cuz I want this to be a larger heading than
+the normal, let's say about our organization and then gonna do la paragraph Lorem 50 then do another paragraph still within the article and Lorem 150, next thing is gonna be in a side so say a-side and this is gonna be a little join our club thing gonna give this a class of card but also want it to be red, want it to have the primary colors. gonna do BG dash primary, so class card and BJP primary and 
+          <article class="card">
+          <h1 class="l-heading">About Our Organization</h1>
+          <p>Lorem ipsum dolor .........................</p>
+          <p>Lorem, ipsum dolor sit amet consectetur ...............................odio provident?</p>
+        </article>
+        <aside class="card bg-primary">
+
+then do an H2 and say join our club just an example of of content widget, nothing in it yet, let's put paragraph here, do Lorem 10, underneath we'll just put an A tag with the class of BTN and do
+a dark button,  
+        </article>
+        <aside class="card bg-primary">
+          <h2>Join Our Club</h2>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit, id?</p>
+          <a href="#" class="btn btn-dark btn-block">Join Now</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+I also want this to go all the way across so let's add BTN block which I'm about 90 percent sure we we added in the CSS already but gonna have to check, so let's say Join Now, yep - I DID!!
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+it wil be display block, save this, so at the moment we just have our content all on one line we want to set this to a grid and we want to have a the main part with all the current h1, paras, etc then in the sidebar anything else aside, etc, let's go to our style sheet
+
+nothing really we have to add, specific to the about page just the page container, it's kind of a utility because we're gonna use it in multiple page so put it at bottom of utility list, say page dash container this is the inner page  grid container, let's display grid and then gonna do grid dash template dash columns and the split that I want to use is going to be 5FR & 2FR, you can experiment with how thin or or wide you want the sidebar to be , this is now with this stretching all the way down.
+
+it's gonna do this because it's a 5 fr & 2fr and gonna be the same
+height, you may want to add another piece of content in the same box,but what I want is have it be a separate box from the next one, it's up to you how you want to lay it out, might want to do something like this 
+
+say we want the page container and want the first child, basically the main article I'm just gonna say asterisk colon first child and wanna span this across gonna say grid dash row, wanna start at 1 and wanna span down three and save and whatever we put next is gonna go right below, the para/ join box, if you want to have more than three then you could you can increase this span and just have it span as long as you want
+
+        /* Inner page grid container */
+        .page-container > *:first-child {
+          grid-row: 1 / span 3;
+        }
+the text in para is very close together so gonna add some margin on the main container for the top and bottom so say 2REM top and bottom zero left and right then let's also do a grid gap
+        Inner page grid container
+        .page-container {
+          display: grid;
+          grid-template-columns: 5fr 2fr;
+          margin: 2rem 0;
+          grid-gap: 1.5rem;
+        }
+we have some space in between the actual grid items, gonna be 1.5 save and have margin top and bottom, also  a grid gap and you'll see that when we create ur article page we're gonna have two boxes on the side.
+
+.page-container > *:first-child {
+  grid-row: 1 / span 3;
+}
+ if I put it to 6 it'll allow us to have 6 on the side instead of the 3 set to now, but leave it at 3 for now.
+
+we have our home page we have our about page in the next gonna start to work on our article
+  -->
+
+  <section id="about">
+    <div class="container">
+      <div class="page-container">
+        <article class="card">
+          <img src="mask.JPG" alt="">
+          <h1 class="l-heading">I’m an ethical hacker</h1>
+          <p>Hacking is identifying weakness in computer systems or networks to exploit its weaknesses to gain access. Example of Hacking: Using password cracking algorithm to gain access to a system</p>
+          <p>Computers have become mandatory to run a successful businesses. It is not enough to have isolated computers systems; they need to be networked to facilitate communication with external businesses. This exposes them to the outside world and hacking. Hacking means using computers to commit fraudulent acts such as fraud, privacy invasion, stealing corporate/personal data, etc. Cyber crimes cost many organizations millions of dollars every year. Businesses need to protect themselves against such attacks.</p>
+        </article>
+        <aside class="card bg-primary">
+          <h2>Join Us</h2>
+          <p>Touch Base</p>
+          <a href="#" class="btn btn-dark btn-block">Join</a>
+        </aside>
+        <aside class="card bg-secondary">
+          <h2>HACK THE BOX</h2>
+          <p>Check out HACK THE BOX</p>
+          <a href="https://www.hackthebox.eu/" class="btn btn-dark btn-block">Check it</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="main-footer" class="py-2">
+    <div class="container footer-container">
+      <div>
+        <img src="newsLogo.png" alt="djsands other logo" class="logo">
+        <h1>Cyber PunkSter</h1>
+        <p>One who enjoys the intellectual challenge of creatively overcoming or circumventing limitations.</p>
+      </div>
+      <div>
+        <h3>Email Newsletter</h3>
+        <p>Keep up-to-date.</p>
+        <form>
+          <input type="email" placeholder="Enter Email...">
+          <input type="submit" value="Subscribe" class="btn btn-primary">
+        </form>
+      </div>
+      <div>
+        <h3>Site Links</h3>
+        <ul class="list">
+          <li><a href="#">Help & Support</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Join Our Club</h3>
+        <p>Join US!</p>
+        <a href="#" class="btn btn-secondary">Join Now</a>
+      </div>
+      <div>
+        <p class="feet">
+          Copyright &copy; 2019, All Rights Reserved
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

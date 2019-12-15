@@ -1,0 +1,739 @@
+/*CSS 1
+Now gonna style, add our base styles,style our nav bar, gonna use some variables in this project, the root scope,create some variables mostly for colors and this makes it really easy if you wanted to switch up the color scheme so let's add one called primary dash color and I want
+to set this to a dark red, set a secondary color, a light color, a dark color, 
+  :root {
+  --primary-color: #c72727;
+  --secondary-color: #f99500;
+  --light-color: #f3f3f3;
+  --dark-color: #333;
+  --max-width: 1100px;
+}
+gonna set the max width of the layout here,say max width and we'll do 1100 pixels, the categories like sports things entertainment technology events these all as you can see have their own colors as well.
+
+Now these are going to have a class called categories, set a scope of the class of category, put those variables, so it's going to be hexadecimal,
+that gets our variables out of the way we can now use those.
+  .category {
+  --sports-color: #f99500;
+  --events-color: #a66bbe;
+  --tech-color: #009cff;
+}
+
+let's move on to our our core styling now as far as fonts,using the Lato font for the standard text all the paragraphs and stuff, but for the headings I'm using a font called Staatliches,
+  <link href="https://fonts.googleapis.com/css?family=Lato|Staatliches" rel="stylesheet">
+get these from Google fonts, put it right above our style dot in the index.html
+
+our style sheet - add a reset, say for everything we want to set the margin and padding to0, also set our box sizing to border box
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+the body,add our font family, base font family Lato, just want sans serif like that, line height, make it kind of big, do 1.5 and then the background is gonna be the light color, take variable of light colo, save that take look
+  body {
+  font-family: 'Lato', sans-serif;
+  line-height: 1.5;
+  background: var(--light-color);
+}
+now you see the background has changed the font has changed, now for the links, don't want all links to have a base color of 333 and I want to remove the underline, text decoration none
+  a {
+  color: #333;
+  text-decoration: none;
+}
+
+next to do the unordered lists, for all unordered lists I'm going to remove the bullet points, ist style none, for any image I want it to be 100 percent of its container because by default images will, just stretch beyond their containers, but if we put a width of 100 percent that will stop it or it'll make it bigger if their container is bigger
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+now the headings, want to have that other font, do each one eac, set that font family and  that's the font we want
+  h1, h2, h3, h4, h5, h6 {
+  font-family: 'Staatliches', cursive;
+  margin-bottom: .55rem;
+  line-height: 1.3;
+}
+gonna say cursive here instead of sans serif and gonna to add a margin bottom to all of our headings of .55 RAM then I'm gonna set a line height I want to lessen the line height a little bit for the headings so I'm going to do 1.3 
+
+let's add our container utility class, gonna be using the container in the NAV so we might as well get this out of the way, so container we want to set a max width and remember we set the variable up above, in the root for Max width, gonna put that in, we want to margin auto, push it to the middle, let's add padding on the left & right 2REM, do overflow hidden so that it always shows the content within and we'll save that
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 0 2rem;
+  overflow: hidden;
+}
+the navigation, remember it has an ID of main NAV, let's say main dash NAV, for the now bar itself we're gonna have a white background, save that that turns white, we're gonna position it sticky cuz we want it to stick to the top, so we have to put a top value of zero, now I always wanted to be on top, so gonna have to add a z index of 2 and you'll see why in a bit .. 
+  #main-nav {
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+save that, not much change, now we want the we want the NAV to be a grid however if we put display grid on the main nav itself, it's just going to put the container as the as the one grid item, so let's make the container the grid container, let's say main dash nav container and let's set that to display grid, so what this will do is, it'll make the logo the social icons and the UL all grid items
+  #main-nav .container {
+  display: grid;
+  grid-template-columns: 6fr 3fr 2fr;
+  padding: 1rem;
+  align-items: center;
+}
+So how we want those laid out, use grid dash template dash columns and for
+the first one which is the logo let's do 6FR, 2nd social icon 3FR, the 3rd 2FR, save that and it's going to align things then let's just add a padding 1REM and then let's align everything  to the center, save that so it aligns them all to the center vertically.
+
+now the logo is way too big, let's make that smaller, say main nav dot logo, set that with to 180, that looks good
+  #main-nav .logo {
+  width: 180px;
+}
+the links,want these to bmore right of the screen, gonna use flexfor the list items, so main nav UL,align it first, want it to go all the way over to the end so we can use justify self and that'll push it all the way over, want to display flex and if I do that automatically the links will go into a flex row
+#main-nav ul {
+  justify-self: end;
+  display: flex;
+}
+then for the links themselves for the tags, say main nav UL LI  a, add padding 75 rem, make them bold, font weight bold
+#main-nav ul li a {
+  padding: 0.75rem;
+  font-weight: bold;
+}
+then for the current, add a background, say main dash NAV UL LI A tag & current,add a background, gonna use the primary color, also change the color to white,
+#main-nav ul li a.current {
+  background: var(--primary-color);
+  color: #fff;
+}
+then for the hover, want to give it the light color, so copy  previou and say hover, do a backgroun, use the light color, now when I hover you see that we get the light color but we want to change the text, make sure the text is dark, do color, use the dark color here
+#main-nav ul li a:hover {
+  background: var(--light-color);
+  color: var(--dark-color);
+}
+the social icons are kind of squished together, main nav social, want to justify self, want to put them in the middle so let's say justify self  cuz remember when we're  aligning the actual item itself, we use self, if we're using the parent we can use  justify content align items and so on, but we're going to say justify self center
+
+#main-nav .social {
+  justify-self: center;
+}
+
+#main-nav .social i {
+  color: #777;
+  margin-right: .5rem;
+}
+then for each icon we want to change the color, do the main nav social and then I and change the color to a gray, let's just add a margin right of .5REM, spread them out a little bit
+#main-nav .social i {
+  color: #777;
+  margin-right: .5rem;
+}
+that looks pretty good
+
+now we're gonna move on to the showcase so let's head back over to HTML
+Let's go under the NAV and add our showcase
+
+*/
+
+:root {
+  --primary-color: #c72727;
+  --secondary-color: #f99500;
+  --secondary2-color: #28f143;
+  --light-color: #fff;
+  --medium-color: #28f143;
+  --dark-color: rgb(20, 12, 138);
+  --back-color: rgb(2, 1, 12);
+  --max-width: 1100px;
+}
+/*
+ */
+.category {
+  --lifestyle-color: #f99500;
+  --learn-color: #a66bbe;
+  --tech-color: #009cff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  line-height: 1.5;
+  background: var(--back-color);
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  margin: .5rem 0;
+}
+
+img {
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Staatliches', cursive;
+  margin-bottom: .55rem;
+  line-height: 1.3;
+}
+ h2 {
+  font-family: 'Staatliches', cursive;
+  margin-bottom: .55rem;
+  line-height: 1.3;
+  color: #eee;
+}
+h6 {
+  font-family: 'Staatliches', cursive;
+  font-size: 3rem;
+  margin-bottom: .55rem;
+  line-height: 1.3;
+}
+
+/* Utility */
+
+/* CSS 3
+our utilities 
+let's do the category so for category , gonna  display as inline block, make the color white, so the background is dependent on the category so we're not going to do that here, but let's change the font size I actually want to make it smaller so we'll do .55 REM units,want it to be uppercase, say text transform to uppercase, padding do 0.4REM, that's the top and bottom and 0.6 REM on the left and right, then for the border dash radius, do 15px, make it rounded then add a margin bottom do a half around, save that
+.category {
+  display: inline-block;
+  color: #fff;
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  padding: 0.4rem 0.6rem;
+  border-radius: 15px;
+  margin-bottom: 0.5rem;
+}
+now notice it doesn't have a color around it, so what we're gonna add our special category colors so categories-whatever and I'll just do one line since just one property, background is gonna be var cat, there we go
+.category-sports { background: var(--sports-color) }
+.category-ent { background: var(--ent-color) }
+.category-tech { background: var(--tech-color) }
+So while we're at it though, might as well add the other categories so we also have ENT for entertainment and tech so now when we add our other categories the styles should be set
+
+now the button we want to do that next, so BTN, so we'll have BTN and then special BTN for the colors as well special classes for the colors, so for the core button let's display as an inline block, then we want to take away the border just in case we use this on an actual button,say border none then the background just by default I'm gonna use the dark color, say a var dash dash dark, just in case you do BTN  without another special class for the color, then let's do color white by default in our padding which will be .5REM top and bottom 1.5 Left and Right, save that, 
+  .btn {
+  display: inline-block;
+  border: none;
+  background: var(--dark-color);
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+}
+I actually want to push the button down a little bit, it seems too close together so where our showcase is, let's grab the paragraph that's in the showcase content and add margin bottom 1REM just to move that down a little bit, 
+  #showcase .showcase-content p {
+  margin-bottom: 1rem;
+}
+so back to the buttons, we have the core button style but we need to do BTN and we're gonna have a BTN light, I'm just gonna do all the colors now so we dont need to worry about it, so background is going to be the variable of light color, we have dark, actually we don't need dark because it's dark by default, so we'll just do primary and secondary so primary, so save that and I can see we have our red button 
+  .btn-light { background: var(--light-color) }
+  .btn-primary { background: var(--primary-color) }
+  .btn-secondary { background: var(--secondary-color) }
+now for the hover, just going to have one hover and I'm gonna add the opacit 0.9 that way it doesn't matter what color it is, it'll still have an effect when you hover over it and it doesn't matter if its dark or light it's just going to change the opacity just to give it a little bit of an effect of change but really we're changing the opacity, we're making it a little bit transparent
+  .btn:hover {
+  opacity: 0.9;
+  }
+then I want to have one more class for the button that will make it into a block level button meaning it goes all the way across, gonna do button or BTN dash block, set it to display block instead of inline block and we set the width to 100%, want to align to the middle, so text align center, so now our buttons should be all set
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+  }
+All so I have set quite a few utility classes in this project which is nice because I can easily change things up if I want to, change the background of something, its simple,
+off to do articles so HTML 6
+*/
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 0 2rem;
+  overflow: hidden;
+}
+
+.category {
+  display: inline-block;
+  color: #fff;
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  padding: 0.4rem 0.6rem;
+  border-radius: 15px;
+  margin-bottom: 0.5rem;
+}
+
+.category-lifestyle { background: var(--lifestyle-color) }
+.category-learn { background: var(--learn-color) }
+.category-tech { background: var(--tech-color) }
+
+.btn {
+  display: inline-block;
+  border: none;
+  background: var(--dark-color);
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+}
+
+.btn-light { background: var(--light-color) }
+.btn-primary { background: var(--primary-color) }
+.btn-secondary { background: var(--secondary-color) }
+
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.card {
+  background: #fff;
+  padding: 1rem;
+}
+
+.bg-dark {
+  background: var(--dark-color);
+  color: #fff;
+}
+
+.bg-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+.bg-primary2 {
+  background: var(--med-color);
+  color: rgb(118, 243, 16);
+}
+.med-primary {
+  background: var(--medium-color);
+  color: rgb(3, 49, 7);
+}
+.bg-secondary {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+.bg-dark h1,
+.bg-dark h2,
+.bg-dark h3,
+.bg-dark a,
+.bg-primary h1,
+.bg-primary h2,
+.bg-primary h3,
+.bg-primary a,
+.bg-secondary h1,
+.bg-secondary h2,
+.bg-secondary h3,
+.bg-secondary a {
+  color: #fff;
+}
+
+.py-1 { padding: 1.5rem 0 }
+.py-2 { padding: 2rem 0 }
+.py-3 { padding: 3rem 0 }
+.p-1 { padding: 1.5rem }
+.p-2 { padding: 2rem }
+.p-3 { padding: 3rem }
+
+.l-heading {
+  font-size: 3rem;
+}
+
+.m-heading {
+  font-size: 2rem;
+}
+.s-heading {
+  font-size: 1.5rem;
+}
+.list li {
+  padding: 0;
+  border-bottom: #555 1px;
+  width: 100%;
+}
+
+.list li a:hover {
+  color: var(--primary-color) !important;
+}
+
+/* CSS 4
+let's start to add the utility classes like the card class, right below the buttons and say Card gonna give this a background of whites and let's do a padding of 1REM, save that. now you can see that each one of these articles they're all wrapped in the white container or white card
+  .card {
+  background: #fff;
+  padding: 1rem;
+ }
+let us style Home Articles, so I.D of home dash articles and remember we have a class in there called articles dash container and that's what we want to set the grid on, that's gonna be the grid parent
+#home-articles .articles-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+and the template columns gonna say grid template columns and  gonna set repeat and we want  3 1FR, so if I save that, automatically they're going to set to three in a row, now I want some spacing in between so let's add a grid gap of 1REM, so now we have some spacing and I mean that's that's not too bad itself but we need to turn the first one into its own grid and then span it over another box, just to give it a little bit of style so we can grab on to this without giving it a special class by using first child
+    #home-articles .articles-container article:first-child {
+say home dash articles Dash Container, now I want the first article, so say article first Dash child I could do that but what if I wanna use a div or something, I'm going to make this a little more flexible and I'm gonna use an asterisk  meaning  any element it doesn't have to be an article but I only want the direct child so I'm gonna use the the greater
+than sign, so we're just saying any anything, whatever this is even if even if this was changed to a div we're still going to target article the first element and only the first one
+    #home-articles .articles-container > *:first-child,
+so let's add display grid and we're gonna add grid dash template columns and we just want to repeat, we want to repeat 2 1FR so  basically the image is gonna be in 1FR and then the text ,the div with the text will be in 1FR and add a grid dash gap and say 1 REM and save that
+ #home-articles .articles-container > *:first-child {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+}
+So what we've done is, we've turned the item ,the first child into a grid and we've set it to repeat 2 1 FR with some grid gap, now obviously it doesn't look very good, what we need to do is span it across, to take up two columns so we'll add grid dash column from one we want to span 2, a cross so we'll save
+
+now the images is kind of up too far,I want to basically center it, so gonna add align dash items to the center, now the images center
+  align-items: center;
+  grid-column: 1 / span 2;
+so, now I want to do basically the same thing to the last, I'm gonna copy this whole thing right here and just put a comma paste that in and change this to last child so that we can target that and save.
+#home-articles .articles-container > *:first-child,
+#home-articles .articles-container > *:last-child {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  align-items: center;
+  grid-column: 1 / span 2;
+}
+now you can see we get the same thing but  we're saying start at 1 and span 2 and that's not what we want because we wanted to start after the previous box,  so we actually wanted to start at two and span two, so we're gonna have to also just grab , go down  and take this and say we want to start it 2 & span 2, go ahead and save that
+#home-articles .articles-container > *:last-child {
+  grid-column: 2 / span 2;
+}
+last thing we want to add our background classes and  padding classes, so some should have background dark, some should have background primary, also need that the pattern classes because the image is too close to the showcase, remember we added the PY to class, so let's go to top and we're going to add in all the background classes which we're gonna have three
+
+say bg dash dark and we're gonna do a background use dark color variable and do a color white, let's go ahead and just go and copy this down twice, let's change this to primary and change this to secondary 
+  .bg-dark {
+  background: var(--dark-color);
+  color: #fff;
+}
+
+.bg-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.bg-secondary {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+then we'll add our padding classes, do P Y dash one and  padding 1.5REM, Top and bottom, copy this down a couple times, this one will be two, and then this one will be three and we'll change these to two and three and then I'm going to copy this and 
+.py-1 { padding: 1.5rem 0 }
+.py-2 { padding: 2rem 0 }
+.py-3 { padding: 3rem 0 }
+we also want pattern classes for all around which will be p1 p2 and P3 and then we'll just take the 0 away which will make it padding all the way around
+.p-1 { padding: 1.5rem }
+.p-2 { padding: 2rem }
+.p-3 { padding: 3rem }
+so those are padding classes.
+
+Let's save that, now we haven't added the bg color yet, you can see the padding is there but let's add our big color classes or BGP backgrounds, so the second one I'm going to give a class of BG, <article class="card bg-dark"> save it and you can see the card is dark now,but we have an issue here, the heading is not white, even though we put color white we have to specifically target the heading or any links etc, also want to set those to white, so I'm gonna just create a bunch of styles,  do big dark each one, primary, do H1 H2 and H3,
+.bg-dark h1,
+.bg-dark h2,
+.bg-dark h3,
+.bg-dark a,
+.bg-primary h1,
+.bg-primary h2,
+.bg-primary h3,
+.bg-primary a,
+.bg-secondary h1,
+.bg-secondary h2,
+.bg-secondary h3,
+.bg-secondary a {
+  color: #fff;
+}
+I know we only have an 3 but we might use BG dark somewhere where there's an H1 or an H2 as well so I I'm just trying to make this scalable basically and then let's take care of any links,BG dark a, the primary and secondary background ,to color white and save, now you can see that the heading is white,so I wanthe second to last ones to have the BG primary so this is the last article let's go to the second to last and say BG dash primary and save , it's not responsive yet, gonna get to that  last but I think it looks decent  
+*/
+
+
+/* Inner page grid container */
+.page-container {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  margin: 2rem 0;
+  grid-gap: 1.5rem;
+}
+
+.page-container > *:first-child {
+  grid-row: 1 / span 3;
+}
+
+/* Navigation */
+#main-nav {
+  background: rgb(255, 255, 255);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+#main-nav .container {
+  display: grid;
+  grid-template-columns: 6fr 3fr 2fr;
+  padding: 1rem;
+  align-items: center;
+}
+
+#main-nav .logo {
+  width: 140px;
+}
+
+#main-nav ul {
+  justify-self: end;
+  display: flex;
+}
+
+#main-nav ul li a {
+  padding: 0.75rem;
+  font-weight: bold;
+}
+
+#main-nav ul li a.current {
+  background: var(--primary-color);
+  color: rgb(255, 255, 255);
+}
+
+#main-nav ul li a:hover {
+  background: var(--light-color);
+  color: var(--dark-color);
+}
+
+#main-nav .social {
+  justify-self: center;
+}
+
+#main-nav .social i {
+  color: rgb(7, 9, 114);
+  margin-right: .5rem;
+}
+
+/* Showcase */
+
+/* CSS 2
+say showcase, the showcase itself let's do color white, gonna have the image background but the background gonna put on the before pseudo selector,  previously I learned how to utilize the after and before pseudo, to add a background image with an overlay using the before selector, so for the actual showcase I want the background to be dark, let's use 333, gonna add padding 2REM all around and  do position relative, and that's important cuz the before pseudo selector is gonna be position absolute and if I remeber correctly if you position something absolute it is positioned inside  of the first relative container and want that to be our showcase
+#showcase {
+  color: #fff;
+  background: #333;
+  padding: 2rem;
+  position: relative;
+}
+save that and go right below, let's add showcase and gonna do before,now when using before and after you want to put the content in but we're not actually inserting content so we're just going to leave this blank and then we want to add our background image here,let's say background URL  slashimage and then we want featured image and gonna do no repeats center center slash cover, that's not gonna show just yet, let's position this absolute because we're basically laying this on top of the showcase, so position absolute start at the top zero and the left zero, then we want the width to go all the way across, we want the height to go all the way 100%, also want to make it transparent so add an opacity of say 0.4 and save
+#showcase:before {
+  content: '';
+  background: url('../img/featured.jpg') no-repeat center center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+}
+now you can see the the image has an overlay or  it's not really an overlay on the image, it's basically the image, you can see through it to the dark, can also see through the text right now but we'll fix that in a little bit
+
+let's grab on to the class of showcase container, want to display as a grid, then the grid template columns, I want to take up half the space basically so we're gonna just repeat 2x 1FR, want it to be a two column grid even though we only have one item that's fine, it should still make room for just  an empty item basically then after that let's justify content to the center, so this whole center is horizontal and then we want to center it vertically as well, so align items center and then let's make the height of the showcase half the viewport, so 50 VH and save that 
+#showcase .showcase-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+so notice that the text is see through, basically the image is on top of the text and the z index takes care of of what displays first, basically the order of  what is on top of what, so let's take the showcase, the showcase container, we want the showcase content which wraps all the text and let's set the z index to one and save and now you can see that it becomes clearer, it's now on top of the image
+  #showcase .showcase-content {
+  z-index: 1;
+  }
+
+that's pretty much it for the core showcase styles but we do want to add the category, we need some styling for that as well as the buttons which you can't even see but those are gonna be utility classes that we can apply and use  in other places as well 
+
+so let's go back to utilities . .. CSS3
+ */
+#showcase {
+  color: rgb(243, 243, 247);
+  background: rgb(2, 2, 39);
+  padding: 0.5rem;
+  position: relative;
+}
+
+#showcase:before {
+  content: '';
+  background: url('mask3.jpg') no-repeat center center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+}
+
+#showcase .showcase-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vh;
+}
+
+#showcase .showcase-content {
+  z-index: 1;
+}
+
+#showcase .showcase-content p {
+  margin-bottom: 1rem;
+}
+
+/* Home Articles */
+#home-articles .articles-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+#home-articles .articles-container > *:first-child,
+#home-articles .articles-container > *:nth-child(4),
+#home-articles .articles-container > *:nth-child(9),
+#home-articles .articles-container > *:nth-child(10),
+#home-articles .articles-container > *:last-child {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  align-items: center;
+  grid-column: 1 / span 2;
+}
+
+#home-articles .articles-container > *:last-child,
+#home-articles .articles-container > *:nth-child(4),
+#home-articles .articles-container > *:nth-child(9){
+  grid-column: 2 / span 2;
+}
+
+#home-articles .articles-container > *:nth-child(10){
+  grid-column: 1 / span 2;
+}
+
+#article .meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eee;
+  padding: 0.5rem;
+}
+
+#article .meta .category {
+  margin-top: 0.4rem;  
+  display: flex;
+}
+
+/* Footer */
+
+/* CSS 5
+( HTML  --- going to start to work on the footer which is also going to be a grid container, let's go to the bottom of the HTML,  say footer and let's give it a footer tag with an I.D. of main dash footer, then inside we're gonna have the container class to move everything to the middle,gonna also add a class of foot container here which will be the actual grid container, and inside we're gonna basically have five divs if we look at the project, gonna set it to repeat for 1FR so it has 4 contaners, then the next one gets knocked on to the next line, the last one,  we want to span across all the way
+
+so gonna add a grid span so let's add our first div which is gonna have that light logo so we're gonna say image, source is gonna be in the image folder and gonna be the logo  PNG, say news grid, then underneath that gonna put a paragraph, let's do Lorem 20, so that's the first div
+
+And the next one is going to be the email newsletter, let's do an h3, say e-mail newsletter and then gonna do a paragraph, say Lorem will do alarm 8 and under the paragraph we're gonna have a little form, get rid of the action, inside gonna have an input, give it a type of email since this is gonna be an email field, don't need name and ID,,will
+put a place holder, say enter email and then we want  submit button, gonna do an input with the type of submit and for the value will say subscribe and let's also give this a class of BTN and I want to do BTN and primary, the next thing we want is the links so these site links which aren't going to go anywhere but it's just for the aesthetics of the site, let's say div and gonna have an H3 and just say site links and then a -- - )
+
+NOW gonna style I'm going to give a class of list and I want it to be basically like a utility class so that we can use this in other places as well, as far as the list items go,  gonna have links to just nowhere, the first one is gonna be help and support, copy it, four times and do privacy policy, it's just some common pages you see on Web sites, do about us, do contact,  the next grid item is gonna be a div, gonna be the join our club, gonna do an H2 and say join our club then put a paragraph and do Lorem 10 then under that will have an A tag with the class of BTN and class of BTN secondary, let's just say in here, we'll say Join Now, then the final div is just gonna be a paragraph and in that paragraph will say copyright, do Ampersand copy semicolon which will give us a little copyright symbol, 2019, All rights reserved, that's all the html, check it out, not looking good YET!!
+
+head over to  CSS -- - )
+
+some utility classes to create but gonna just start on the footer itself first, so it's a footer, have an I.D, an ID of main dash footer, the footer gonna use the dark color as it's background var dash dash Dark color and make the actual color of the text white, save that, the image is obviously way too big so let's say main dash footer image
+#main-footer {
+  background: var(--dark-color);
+  color: #fff;
+}
+then target the image, want to set the width, 150pixels.
+
+#main-footer img {
+  width: 150px;
+}
+I want all the links to be white, say main footer all the tags we want the color to be white, now we're gonna work on the grid and aligning these,
+#main-footer a {
+  color: #fff;
+}
+want to create some columns, gonna say main footer, gonna grab onto the footer dash container and gonna say display grid then as far as the grid template columns onna do repeat and let's repeat four times one fraction, add a grid gap, spread them apart a little bit, 1.5REM and save, now you can see that they're all aligned
+#main-footer .footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.5rem;
+}
+
+this last one here this this copy right, want this to span all the way across, gonna target that by saying main footer and we want from the footer container the  direct element to that is the last child, even if it wasn't a div, it doesn't matter what kind of element,  we're still gonna target it then gonna set the background to 444, we save that, you can see it's stuck in here, so we want to span it all the way across, gonna do grid dash column, wanna start at the first column then we want to span across 4, we have 4 total, save that, now it spans all the way across, just add a little bit of padding .5REM, also text aligned to the center, wanna make the font size just a little smaller so gonna do 0.7REM and save, 
+          #main-footer .footer-container > *:last-child {
+          background: #444;
+          grid-column: 1 / span 4;
+          padding: .5rem;
+          text-align: center;
+          font-size: 0.75rem;
+        }
+let's see the footer itself,l et's add a padding class to the footer, class, remember we have the P Y which is top and bottom, do P Y to and save,now this right here the little form bit 
+           <footer id="main-footer" class="py-2">
+ the little email form wanna style that, let's target main footer and let's do photo container, gonna grab the input and gonna say I want the input that has the type that is equal to e-mail OK and I'm going to set the width to 90 percent and let's set padding say 0.5REM, do a margin bottom of .5,save that, looking good
+          #main-footer .footer-container input[type='email'] {
+            width: 90%;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+          }
+for this for this button wanna set that witdh to 90 percent as well, remember the main footer that's an input and we want to say where that type is equal to submit and then I just want to set the width to 90 percent, that looks pretty good
+           #main-footer .footer-container input[type='submit'] {
+            width: 90%;
+          }
+I forgot to do is for the paragraphs,, all paragraphs to have a little bit of margin, you can see how close together, let's go up top to like our core styles and put in paragraph, say for the margin top and bottom 0.5REM, just adds a little bit of space, OH Yeah!! looking good
+            p {
+              margin: .5rem 0;
+            }
+let's handle the list, wanna be able to use the List class and other places as well so gonna add this as a utility class, go right under the padding  and let's say dot list, we don't need to style the list itself, just do the LI, just wanna add padding, say 0.5REM top and bottom, let's add a border bottom of 555 dotted 1px then I wanna set the width to 90 % and save
+              .list li {
+                padding: .5rem 0;
+                border-bottom: #555 dotted 1px;
+                width: 90%;
+              }
+
+do a hover state,  make the hover the primary colors, so we want to do dot list LI a hover, let's say we want the color to be var primary color, not working??  add an important flag here, so that's our list styling, that's it for the footer
+              .list li a:hover {
+                color: var(--primary-color) !important;
+              }
+
+we also have an article page so we'll create those and then we'll start to work on the the mobile version for the Web site 
+*/
+#main-footer {
+  background: var(--light-color);
+  color: rgb(13, 8, 80);
+  grid-column: 1 / span 4;
+}
+#main-footer .feet {
+  color: rgb(238, 237, 243);
+}
+
+#main-footer img {
+  width: 150px;
+}
+
+#main-footer a {
+  color: rgb(28, 25, 214);
+}
+
+#main-footer .footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.5rem;
+}
+
+#main-footer .footer-container > *:last-child {
+  background: rgb(8, 4, 68);
+  grid-column: 1 / span 4;
+  padding: .5rem;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+#main-footer .footer-container input[type='email'] {
+  width: 90%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#main-footer .footer-container input[type='submit'] {
+  width: 90%;
+}
+
+/* CSS 6
+move onto the about page
+*/
+
+

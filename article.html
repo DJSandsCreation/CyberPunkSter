@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!---HTML 1
+we created the about page and added the page container which is going to be the grid that we use for all inner pages, the article .htmlis gonna be pretty similar, gonna add a couple extra things in the main article but the layout will be the same basically, so gonna copy the about.html all the content and go to Article and paste it in.
+
+change the title, then we want to remove the current from the about so gonna have a class of current cuz the article page is not in the menu, then for the section give it an ID of article and gonna keep the page
+contain, gonna keep the the article tag class 
+
+one thing I forgot to do, add the L heading in the style, do that real quick,a utility class, put it right under the padding, say Font Size 3 REM, Good
+
+.l-heading {
+  font-size: 3rem;
+}
+  <section id="article">
+    <div class="container">
+      <div class="page-container">
+          <h1 class="l-heading">Lorem ipsum dolor sit amet</h1>
+          <p>Lorem ipsum ........</p>
+          <p>Lorem, .........odio provident?</p>
+        </article>
+
+so for the article we have  heading gonna change, do lorem 5 for the title, underneath the H1 gonna have some metadata, so an article or a blog post usually will have things like the author date stuff like that,gonna create a class a div with the class of meta and inside meta gonna put a small tag, so the small tags it's basically an inline element that will make the text smaller by default I forget what the percentages is but it makes it a little smaller, then gonna put an icon of a user, make sure we use font awesome
+
+say I with the class of FAS FA Dash user, so putting the author's name with just a little icon next to the author name, gonna say written by Jane Doe then just put the date January 12th 2200, that's all in the small tag then we want to have a div with the class of category because we want to put the category there and the title of category and then  just keep the same text, one thing that we do need is an image, gonna put the image above the H1 actually, named the imag in rlation to what ists related to,  save it and let's see what it looks like
+          <section id="article">
+            <div class="container">
+              <div class="page-container">
+                <article class="card">
+                  <img src="img/articles/ent1.jpg" alt="">
+                  <h1 class="l-heading">Lorem ipsum dolor sit amet</h1>
+                  <div class="meta">
+                    <small>
+                      <i class="fas fa-user"></i> Written By ...</small>
+                    <div class="category category-ent">Entertainment</div>
+                  </div>
+                  <p>Lorem ipsum ........</p>
+                  <p>Lorem, .........odio provident?</p>
+                </article>
+if I go to the home page I have all of these pointing to Article.html and gonna style this  a little bit, also want to add an extra box on the side right above the box, which will be a list of categories.
+
+so scroll down to where we have our aside/join our club and gonna change
+the color for this page will say secondary that's what's good about having these utility classes that you can easily change things around the site and then you have variables in the CSS file which makes
+it easy to change the values
+
+        <aside class="card bg-secondary">
+          <h2>Join Our Club</h2>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit, id?</p>
+          <a href="#" class="btn btn-dark btn-block">Join Now</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+go right above <aside class="card bg-secondary"> and create another aside and this aside is gonna have an I.D. of categories but let's give it a class of card and we'll put an H2 say categories and under the H2 we'll have a UL gonna use our lists class and do an LI and just put a link that goes nowhere for now, gonna put little Chevron icons next to each one so use font awesome, do F.A dash Chevron, put a space after it and fil int he title, copy and repeat
+        <aside id="categories" class="card">
+          <h2>Categories</h2>
+          <ul class="list">
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Sports</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Entertainment</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Technology</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Fashion</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Shopping</a></li>
+          </ul>
+        </aside>
+save that,and it automatically gets put in the sidebar so the grid is pretty powerful, we just add display grid, add a couple grid template columns maybe some spans and we have our layout for all of our inner pages without having to do floats or anything like that
+
+just want to style this this meta area because it doesn't look very good it's very squished together, wanna give it a look of texture so we'll add a background color to it as well, go into our style sheet  and let's go down, targeting something that's on a specific page, going to go under home articles right above the footer and let's say the ID of article and then we want the class of meta so gonna use flex for this
+
+this is definitely something that you would use flex for, you can see the difference between using grid and flex like the grid is good for the layout of all the boxes and then flex is good for inner elements aligning stuff author info or menus and you know just small simple stuff that's that's one dimensional, let's say display flex and you could use the grid for this so let's justify our content and we want to do space 
+#article .meta {
+  display: flex;
+  justify-content: space-between;
+}
+I want the category to be over to the right because if we look at the markup in the meta <div class= meta> this is now a flex box, then the small tag is going to be one flex item <small> <i class... small> we want space in between the two <div class=category ...</div> so it pushes the category over and then do align items center as well and
+
+then we'll do a background.
+#article .meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eee;
+  padding: 0.5rem;
+}
+do a background EEE add some padding  0.5REM and save that take a look, even though we align center this category I want to push it down just a little bit, do article meta category and same margin top, do 0.4 REM and that just pushes it down a little bit into the middle.
+#article .meta .category {
+  margin-top: 0.4rem;
+}
+
+So our site is complete except for the responsiveness of it, if we shrink it to Mobile size you'll see that things don't look very well, so gonna have to just add some media queries and make this look good,
+onto the mobile version . . .. 
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Staatliches" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" media="screen and (max-width: 768px)" href="css/mobile.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <title>NewsGrid | Latest News</title>
+</head>
+<body>
+  <nav id="main-nav">
+    <div class="container">
+      <h1>Cyber PunkSter<i class="fas fa-fingerprint fa-3x"></i></h1>
+      <div class="social">
+        <a href="http://facebook.com" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="http://twitter.com" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="http://instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+        <a href="http://youtube.com" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="article">
+    <div class="container">
+      <div class="page-container">
+        <article class="card">
+          <img src="mask4.jpg" alt="">
+          <h1 class="m-heading">Top 5 of the World’s Most Famous and Best Hackers</h1>
+          <div class="meta">
+            <small>
+              <i class="fas fa-user"></i> Written By John Doe January 12, 2019
+            </small>
+            <div class="category category-learn">Learn</div>
+          <p>Not all hackers are bad. The good ones are called “white-hat hackers” and use hacking to improve computer security. The ones who are just having fun are called “gray-hat hackers.” But the malicious kind you’re thinking of?</p>
+          <p>They’re called “black-hat hackers.” Despite being the best at what they do, they can cause a lot of harm, as history has shown. Here are some of the most infamous and nefarious “black hatters,” what they did to earn their reputations, and where they are today.</p>
+        </div>
+
+          <img src="geek1.jpg" alt="">
+          <h1 class="s-heading"> Kevin Mitnick</h1>
+          <p>The US Department of Justice called him the “most wanted computer criminal in US history.” Kevin Mitnick’s story is so wild that it was even the basis for a featured film called Track Down. After serving a year in prison for hacking into the Digital Equipment Corporation’s network, he was let out for three years of supervised release. But near the end of that period, he fled and went on a 2.5-year hacking spree that involved breaching the national defense warning system and stealing corporate secrets.Mitnick was eventually caught and convicted with a five-year prison sentence. After fully serving those years, he became a consultant and public speaker for computer security. He now runs Mitnick Security Consulting, LLC.</p>
+
+          <h1 class="s-heading">Jonathan James</h1>
+          <p>The story of Jonathan James, known as “c0mrade,” is a tragic one. He began hacking at a young age, managing to hack into several commercial and government networks and being sent to prison for it—all while he was still a minor.James eventually hacked into NASA’s network and downloaded enough source code (assets equaling $1.7 million at the time) to learn how the International Space Station worked. NASA had to shut down its network for three entire weeks while they investigated the breach, costing an additional $41,000. In 2007, several high-profile companies fell victim to numerous malicious network attacks. Even though James denied any involvement, he was suspected and investigated. In 2008, James committed suicide, believing he would be convicted of crimes he didn’t commit.</p>
+
+          <img src="geek2.jpg" alt="">
+          <h1 class="s-heading">Albert Gonzalez</h1>
+          <p>Albert Gonzalez paved his way to internet fame when he collected more than 170 million credit card and ATM card numbers over a period of two years. He then hacked into the databases of TJX Companies and Heartland Payment Systems to steal all of their stored credit card numbers as well.Gonzalez was sentenced to prison for 20 years (two sentences of 20 years to be served simultaneously) and is scheduled for release in 2025.</p>
+
+          <h1 class="s-heading">Kevin Poulsen</h1>
+          <p>Kevin Poulsen, also known as “Dark Dante,” earned his 15 minutes of fame by utilizing his intricate knowledge of telephone systems. At one point, he hacked a radio station’s phone lines and fixed himself as the winning caller, earning him a brand new Porsche. According to media, he was the “Hannibal Lecter of computer crime.” Poulsen got himself onto the FBI’s wanted list when he hacked into federal systems and stole wiretap information. He was later captured in a supermarket (of all places) and sentenced to 51 months in prison and a bill for $56,000 in restitution. Poulsen changed his ways after being released from prison in 1995. He began working as a journalist and is now a contributing editor for Wired. In 2006, he even helped law enforcement to identify 744 sex offenders on MySpace.</p>
+
+          <h1 class="s-heading">Nasa Hacker Gary McKinnon</h1>
+          <p>Gary McKinnon, known as “Solo” on the internet, allegedly coordinated what would become the largest military computer hack of all time. Over a 13-month period from February 2001 to March 2002, McKinnon illegally accessed 97 computers belonging to the US Armed Forces and NASA.</p>
+          <img src="geek3.jpg" alt="">
+       </article>
+
+        <aside id="categories" class="card">
+          <h1 class="m-heading" >Categories</h1>
+          <h3><i class="fab fa-leanpub"></i>  Learn</h3>
+          <ul class="list">
+            <li><a href="https://en.wikipedia.org/wiki/Hacker">Hacker - From Wikipedia, the free encyclopedia</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Billy_Idol">Cyberpunk (album) Billy Idol - From Wikipedia, the free encyclopedia</a></li>
+            <li><a href="#"> Technology</a></li>
+            <li><a href="#"> Fashion</a></li>
+            <li><a href="#"> Shopping</a></li>
+          </ul>
+          <br>
+          <h3><i class="fab fa-reddit-alien"></i>  Lifestyle</h3>
+          <ul class="list">
+            <li><a href="https://en.wikipedia.org/wiki/Cyberpunk">The Matrix - From Wikipedia, the free encyclopedia </a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Billy_Idol">Dark Angel (American TV series)</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Dark_Angel_(American_TV_series)">Hacker Typer</a></li>
+          </ul>
+          <br>
+          <h3><i class="fas fa-headset"></i>  Technology</h3>
+          <ul class="list">
+            <li><a href="https://en.wikipedia.org/wiki/Cyberpunk">The Matrix - From Wikipedia, the free encyclopedia </a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Billy_Idol">Dark Angel (American TV series)</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Dark_Angel_(American_TV_series)">Hacker Typer</a></li>
+          </ul>
+          <br>
+          <h3><i class="fas fa-vector-square"></i>  Links</h3>
+          <ul class="list">
+            <li><a href="https://en.wikipedia.org/wiki/Hacker">Hacker - From Wikipedia, the free encyclopedia </a></li>
+            <li><a href="https://hackertyper.net/">Hacker Typer</a></li>
+          </ul>
+        </aside>
+
+  <!-- Footer -->
+  <footer id="main-footer" class="py-2" >
+    <div class="container footer-container">
+      <div>
+        <img src="newsLogo.png" alt="djsands other logo" class="logo">
+        <h1>Cyber PunkSter</h1>
+        <p>One who enjoys the intellectual challenge of creatively overcoming or circumventing limitations.</p>
+      </div>
+      <div>
+        <h3>Email Newsletter</h3>
+        <p>Keep up-to-date.</p>
+        <form>
+          <input type="email" placeholder="Enter Email...">
+          <input type="submit" value="Subscribe" class="btn btn-primary">
+        </form>
+      </div>
+      <div>
+        <h3>Site Links</h3>
+        <ul class="list">
+          <li><a href="#">Help & Support</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Join Our Club</h3>
+        <p>Join US!</p>
+        <a href="#" class="btn btn-secondary">Join Now</a>
+      </div>
+      <div>
+        <p class="feet">
+          Copyright &copy; 2019, All Rights Reserved
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

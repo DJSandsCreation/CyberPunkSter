@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--HTML1
+create our files, create index html,about.html, article .html which will represent a single article and then create a folder CSS inside style.css, mobile.css
+
+index.html, boilerplate, the title I'm just going to say info grid and latest, link our style sheets & mobile CSS, however we only want this to show if the screen is 768 or less so we're going to add a media attribute,say screen, Max with 768 pixels.
+    <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" media="screen and (max-width: 768px)" href="css/mobile.css">
+
+using font awesome, add the link,  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Staatliches" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" media="screen and (max-width: 768px)" href="mobile.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <title>CyberPunkSter</title>
+  <!--HTML 2
+favicon, my instructor uses a service called dynamic drive, earch for a dynamic drive fab Akon you'll get this link here it's actually tools dot dynamic -- http://tools.dynamicdrive.com/faviconeditor/
+
+you can upload an image,download that and let's go ahead and grab that.
+in folder,keep in root file not img file - i had problems with this so I found this --https://www.favicon-generator.org/
+
+add this little snippet here this link to the fav icon 
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+And I'm just going to remove the slash because it will give us some issues if we just open it with the file system it won't display.
+that's it, with live server and if you don't see the fab icon you need to just clear your cache , see the fab icon displays in the tab.
+
+let's start to add some markup  -->
+</head>
+<body>
+  <nav id="main-nav">
+<!--HTML 3
+First thing is the nav bar,a nav with the ID of main NAV, put a container
+ to contain everything to the max witdh that we're gonna set and then we're going to have our logo, image with the class of logo, alt logo, 
+    <div class="container">
+      <img src="newsLogo.png" alt="djsands other logo" class="logo">
+
+ under that we want our social media icons, this is gonna be a grid, set this to grid, normally I'd  use flex for this but I want to focus on the grid system here, so each one of these will be grid items, so let's give this div a class of social and then we're gonna have a link and we'll just set this to go to Facebook, obviously this would be their Facebook page but this is a fictional Web site, then inside here we want to put the ope I tag with the class of FAB the social media icons have a class of FAB instead of F.A.S and then Dash Facebook, also add a class of FA dash to X which will make it larger, then since this is an external Web site let's add target equals underscore blank which will open in a new tab.
+      <div class="container">
+      <img src="newsLogo.png" alt="djsands other logo" class="logo">
+      <div class="social">
+        <a href="http://facebook.com" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="http://twitter.com" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="http://instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+        <a href="http://youtube.com" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+      </div>
+
+so let's take this and let's copy this down three more times and we're gonna do Twitter the icon,  Instagram and then YouTube, And don't worry we'll make this look better, lol, last thing we need in this container is the links so or our list with the links, -->
+    <div class="container">
+      <h6 class="logo">Cyber PunkSter<i class="fas fa-fingerprint fa-3x"></i></h6 cla>
+      <div class="social"> 
+        <a href="http://facebook.com" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="http://twitter.com" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="http://instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+        <a href="http://youtube.com" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+      </div>
+<!-- HTML 4
+So UL, LI A, a class of current cuz I want the current page to be highlighted, go to index .html, say home., copy this down and let's say about changes to about.html,and let's clear this class,it's looking bad for now 
+
+lets add some CSS .. CSS1
+-->
+      <ul>
+        <li><a class="current" href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Showcase -->
+<!-- HTML 5
+now we're gonna move on to the showcase back to HTML, under the NAV and add our showcase, gonna use a header with the I.D showcase, want to put everything into the middle so gonna use a container, but I don't want to use the actual container here for the for the grid container so I'm going to create another class called showcase dash container, inside  we're gonna just have one grid item
+  <header id="showcase">
+    <div class="container">
+      <div class="showcase-container">
+        <div class="showcase-content">
+So gonna use the grids to just align it over to the side, which I probably would normally use flex for but I just want to be focused on using/learning the grid,  gonna have one grid item and  gonna call this showcase dash content and inside  we're gonna have the category
+            <div class="category category-whatever">Whatever</div>
+          <h1>Some whatever Article</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus rerum officia quibusdam mollitia deserunt animi soluta laudantium. Quam sapiente a dolorum magnam necessitatibus quis tempore facere totam. Dolor, sequi distinctio!</p>
+  </header>
+So category is the core styling like the padding the border radius but then the color is dependent on the category within the category, like a sub, gonna have a class called category-whatever, and underneath the category-whatever put the title gonna be an H1, let's just say some whatever article then a paragraph, lorem 20 seems about right
+            <a href="article.html" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+then underneath the paragraph,want a link, gonna give this a class of BTN which would be the core Button class and then BTN primary which will be the primary colors so we'll have to set those up and we'll just have this go to Article .html, and the text read more .. 
+
+so lets add some CSS for this CSS 2
+-->
+  <header id="showcase">
+    <div class="container">
+      <div class="showcase-container">
+        <div class="showcase-content">
+          <div class="category category-learn">Learn</div>
+          <h1>The Cyber PunkSter</h1>
+          <p>One who programs enthusiastically (even obsessively) or who enjoys programming rather than just theorizing about programming.</p>
+          <a href="article.html" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Home Articles -->
+  <!-- HTML 6
+going to start to work on the articles 
+basically a grid of articles,quite a bit ofHTML mark up, under the header Home Articles, this is gonna be a section so gonna HTML5 section tag and  gonna give an an ID of home dash articles and gonna create padding classes so I'm gonna give it a class of PY dash 2, to give it some padding on the top and bottom 
+          <section id="home-articles" class="py-2">
+and the way that these are gonna be set up a little different,its a page full of articles, so for instance this first article gonna make this a grid within a grid so that we can align it  then some of these will be adding a background color to some of them will have an image in some so they'll be formatted a little bit differently
+
+let's create the heading, say Editor's Picks or editor picks and then what I want to do is create a container for the grid, call articles container,then each one is gonna be an article tag and I'm gonna give it a class of card, so card is something you see often in frameworks like bootstrap where you have maybe a background and some padding just something to put your content into rather than just having the text and images just floating there with just the background, sometimes you'll have  like a colored heading, maybe a background with a heading something like that, those are gonna be cards so each one of these articles will have a class of card 
+    <section id="home-articles" class="py-2">
+      <div class="container">
+        <h2>Editor Picks</h2>
+        <div class="articles-container">
+          <article class="card">
+put our first image in which IMG slash articles, so this is an entertainment article and this is
+             <article class="card">
+gonna be a grid container and then this will be a one grid item 
+               <img src="img/articles/ent1.jpg" alt="">
+in them, we'll  have a div that will have the rest of the stuff inside of it,so for instance the category which is going to be have a class of category dash ENT say entertainment, and underneath that we're gonna have our H3 title which is gonna be a link and it's gonna go to Article .html, say orem 5 for the title rather and under h3 gonna put a paragraph and  say Lorem 20 thing is a 20 looks like 20 so that's our first one and if I save it and we take a look,  the image is gonna be giant because the images have have a width of one hundred percent
+              <div>
+              <div class="category category-ent">Entertainment</div>
+              <h3>
+                <a href="article.html">Lorem ipsum dolor sit amet</a>
+              </h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quam eius ducimus optio veniam sit nihil beatae ea autem. Doloribus.</p>
+            </div>
+Now one thing I forgot is the main container you see how the image is right up to the sides, the edge cuz I didn't add the container class so right under the section I'm gonna have a class of container that's gonna wrap around everything and save, now you can see that there's some padding on the edge here and it also align to the middle
+            <section id="home-articles" class="py-2">
+    <div class="container">
+        <h2>Editor Picks</h2>
+        <div class="articles-container">
+          <article class="card">
+            <img src="img/articles/ent1.jpg" alt="">
+            <div>
+              <div class="category category-ent">Entertainment</div>
+              <h3>
+                <a href="article.html">Lorem ipsum dolor sit amet</a>
+              </h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quam eius ducimus optio veniam sit nihil beatae ea autem. Doloribus.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+let's add our next article I'm just going to copy,now this one is not going to be its own grid,so we don't need to have this extra div under the img, not even going to have an image we can take that out 
+              <article class="card bg-dark">
+            <div class="category category-sports">Sports</div>
+            <h3>
+              <a href="article.html">Lorem ipsum dolor sit amet</a>
+            </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quam eius ducimus optio veniam sit nihil beatae ea autem. Doloribus.</p>
+          </article>
+so category is whatever, leave the title in the paragraph, so if we take a look we should have something in abox, button and words, the next one is gonna be similar to what we just did only it's gonna have an image up top, let's copy the one we just did and paste that in and just fix this,
+so this one is gonna have an image right above the categories so let's say image and  its technology so we want tech1.jpeg and we'll change the div title to tech, technology, save that, make sure the image shows up and then we have the content under it, so the next one is similar except the image is at the bottom
+
+So I'll just copy what we just did and Let's paste that in and we're just going to take the image but we're gonna move this to the bottom of the article so right under the paragraph and we'll change the div category 
+
+then the next one basically the same thing as the first one but a different image, go ahead and copy that one with the tech one image and paste that change cat div,
+
+next one is doesn't have an image or anything like previous one so I'll copy the one we did with no image which is the second one, change what needs changing, this last one is similar to the first one in that it's gonna be a grid within a grids, so let's let's copy the first one
+
+there is a markup and hopefully it's not too confusing, save that, if we take a look it's gona look pretty bad it's just all in one line because we
+haven't added the grid yet, so let's jump into style CSS and let's start to add our grid actually first thing I'm going to do is
+
+go to CSS 4  
+   -->
+  <section id="home-articles" class="py-2">
+    <div class="container">
+        <h2>Editor Picks</h2>
+        <div class="articles-container">
+          <article class="card">
+            <img src="hack6.jpg" alt="hacker image">
+            <div>
+              <div class="category category-learn">Learn</div>
+              <h3>
+                <a href="article.html">Hacker - From Wikipedia, the free encyclopedia </a>
+              </h3>
+              <p>A computer hacker is any skilled computer expert that uses their technical knowledge to overcome a problem. While "hacker" can refer to any skilled computer programmer, the term has become associated in popular culture with a "security hacker", someone who, with their technical knowledge, uses bugs or exploits to break into computer systems.</p>
+              <h3>
+                <a href="https://en.wikipedia.org/wiki/Hacker">More >> </a>
+              </h3>
+            </div>
+          </article>
+          <article class="card bg-dark">
+            <div class="category category-lifestyle">LifeStyle</div>
+            <h3>
+              <a href="article.html">What is Cyberpunk? – Neon Dystopia</a>
+            </h3>
+            <p>Trying to define Cyberpunk is a difficult task.  In short, however, Cyberpunk refers to both a culture and a genre. It is a sub-genre of science fiction that features advanced science and technology in an urban, dystopian future.  On one side you have powerful mega-corporations and private security forces, and on the other you have the dark and gritty underworld of illegal trade, gangs, drugs, and vice.  In between all of this is politics, corruption, and social upheaval.</p>
+            <h3>
+              <a href="https://www.neondystopia.com/what-is-cyberpunk/">More >> </a>
+            </h3>
+          </article>
+          <article class="card">
+            <img src="hyack1.JPG" alt="">
+            <div class="category category-tech">Technology</div>
+            <h3>
+              <a href="article.html">GeekPrank Hacker Simulator</a>
+            </h3>
+            <p>Start typing random text to simulate that you're hacking a computer system.</p>
+            <h3>
+              <a href="https://geekprank.com/hacker/">GO >> </a>
+            </h3>
+          </article>
+          <article class="card">
+            <div class="category category-learn">Learn</div>
+            <h3>
+              <a href="article.html">Cyberpunk (album) Billy Idol - 
+                From Wikipedia, the free encyclopedia</a>
+            </h3>
+            <p>Cyberpunk is the fifth studio album by English rock musician Billy Idol, released on 29 June 1993 by Chrysalis Records. A concept album, it was inspired by his personal interest in technology and his first attempts to use computers in the creation of his music</p>
+            <img src="Billy2006.jpg" alt="">
+            <h3>
+              <a href="https://www.techgig.com/code-a-thon">GO >> </a>
+            </h3>
+          </article>
+          <article class="card">
+            <img src="img/articles/tech2.jpg" alt="">
+            <div class="category category-tech">Technology</div>
+            <h3>
+              <a href="article.html">CODE-A-THON</a>
+            </h3>
+            <p>HOST A CODE-A-THON. TechGig Codeathons are events where developers are encouraged to build original and functional prototype of an application.</p>
+            <h3>
+              <a href="https://www.techgig.com/code-a-thon">GO >> </a>
+            </h3>
+          </article>
+          <article class="card bg-primary">
+            <div class="category category-lifestyle">Lifestyle</div>
+            <h3>
+              <a href="article.html">GeeksforGeeks -  A computer science portal for geeks.</a>
+            </h3>
+            <p>Welcome to the world of Geeks!!
+              How many times were you frustrated while looking out for a good collection of programming/algorithm/interview questions? What did you expect and what did you get? This portal has been created to provide well written, well thought and well explained solutions for selected questions.</p>
+              <h3>
+                <a href="https://www.geeksforgeeks.org/about/">More >> </a>
+              </h3>
+          </article>
+          <article class="card med-primary">
+            <div>
+              <div class="category category-learn">Learn</div>
+              <h3>
+                <a href="article.html">Hacker Typer</a>
+              </h3>
+              <p>Hacker Typer - Screen</p>
+            </div>
+            <img src="hack1.jpg" alt="">
+            <h3>
+              <a href="https://hackertyper.net/">Go >> </a>
+            </h3>
+          </article>
+          <article class="card bg-dark">
+            <div class="category category-lifesyle">LifeStyle</div>
+            <h3>
+              <a href="article.html">Cyberpunk - From Wikipedia, the free encyclopedia</a>
+            </h3>
+            <p>Cyberpunk is a subgenre of science fiction in a dystopian futuristic setting that tends to focus on a "combination of low-life and high tech"[1] featuring advanced technological and scientific achievements, such as artificial intelligence and cybernetics, juxtaposed with a degree of breakdown or radical change in the social order..</p>
+            <h3>
+              <a href="https://en.wikipedia.org/wiki/Cyberpunk">More >> </a>
+            </h3>
+          </article>
+          <article class="card">
+            <div class="category category-lifestyle">Lifestyle</div>
+            <h3>
+              <a href="article.html">The Matrix - From Wikipedia, the free encyclopedia</a>
+            </h3>
+            <img src="matrix.jpg" alt="">
+            <p>The Matrix is a 1999 science fiction action film[3][4] written and directed by the Wachowskis.[a] It stars Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving, and Joe Pantoliano and is the first installment in the Matrix franchise.</p>
+          <h3>
+              <a href="https://en.wikipedia.org/wiki/Cyberpunk">More >> </a>
+            </h3>
+          </article>
+          <article class="card">
+            <div class="category category-lifestyle">Lifestyle</div>
+            <h3>
+              <a href="article.html">Dark Angel (American TV series) -
+                From Wikipedia, the free encyclopedia</a>
+              </h3>
+              <img src="angel.jpg" alt="">
+            <p>Dark Angel is an American cyberpunk television series that premiered on the Fox network on October 3, 2000. Created by James Cameron and Charles H. Eglee, it starred Jessica Alba in her breakthrough role. Set in 2019, the series chronicles the life of Max Guevara (Alba), a genetically enhanced super-soldier ... </p>
+            <h3>
+              <a href="https://en.wikipedia.org/wiki/Dark_Angel_(American_TV_series)">More >> </a>
+            </h3>
+          </article>
+          <article class="card bg-primary">
+            <div class="category category-learn">Learn</div>
+            <img src="hack4.jpg" alt="">
+            <h3>
+              <a href="article.html">Deep Dive Code-A-Thon </a>
+            </h3>
+            <p>The 2019 Deep Dive Code-A-Thon is a Blockchain inspired event for ... For a full list of rules and technical documentation, please visit the codeathon repository</p>
+              <h3>
+                <a href="https://deepdivecoding.com/deep-dive-codeathon/">More >> </a>
+              </h3>
+          </article>
+          <article class="card">
+            <div>
+              <div class="category category-learn">Learn</div>
+              <h3>
+                <a href="article.html">How teenage hackers became tech’s go-to bounty hunters</a>
+              </h3>
+              <p>Today, the best young hackers are millionaires and merit-scholars. When did a criminal exploit become a coveted extracurricular?</p>
+            </div>
+            <img src="hack7.jpg" alt="">
+            <h3>
+              <a href="https://thehustle.co/teenage-hackers-bug-bounty//">More >> </a>
+            </h3>
+          </article>
+          <article class="card med-primary">
+            <div>
+              <div class="category category-learn">Learn</div>
+              <h3>
+                <a href="article.html">CyberPunkReview - The latest news and reviews. </a>
+              </h3>
+              <p>The latest news and reviews from the Cyber Punk world.</p>
+              <h3>
+                <a href="http://www.cyberpunkreview.com/">Go >> </a>
+              </h3>
+            </div>
+            <img src="hack5.jpg" alt="">
+          </article>
+        </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+<!-- HTML 7
+going to start to work on the footer which is also going to be a grid container, let's go to the bottom of the HTML,  say footer and let's give it a footer tag with an I.D. of main dash footer, then inside we're gonna have the container class to move everything to the middle,gonna also add a class of foot container here which will be the actual grid container, and inside we're gonna basically have five divs if we look at the project, gonna set it to repeat for 1FR so it has 4 contaners, then the next one gets knocked on to the next line, the last one,  we want to span across all the way
+
+so gonna add a grid span so let's add our first div which is gonna have that light logo so we're gonna say image, source is gonna be in the image folder and gonna be the logo  PNG, say news grid, then underneath that gonna put a paragraph, let's do Lorem 20, so that's the first div
+
+And the next one is going to be the email newsletter, let's do an h3, say e-mail newsletter and then gonna do a paragraph, say Lorem will do alarm 8 and under the paragraph we're gonna have a little form, get rid of the action, inside gonna have an input, give it a type of email since this is gonna be an email field, don't need name and ID,,will
+put a place holder, say enter email and then we want  submit button, gonna do an input with the type of submit and for the value will say subscribe and let's also give this a class of BTN and I want to do BTN and primary, the next thing we want is the links so these site links which aren't going to go anywhere but it's just for the aesthetics of the site, let's say div and gonna have an H3 and just say site links and then a -- - )
+
+NOW gonna style I'm going to give a class of list and I want it to be basically like a utility class so that we can use this in other places as well, as far as the list items go,  gonna have links to just nowhere, the first one is gonna be help and support, copy it, four times and do privacy policy, it's just some common pages you see on Web sites, do about us, do contact,  the next grid item is gonna be a div, gonna be the join our club, gonna do an H2 and say join our club then put a paragraph and do Lorem 10 then under that will have an A tag with the class of BTN and class of BTN secondary, let's just say in here, we'll say Join Now, then the final div is just gonna be a paragraph and in that paragraph will say copyright, do Ampersand copy semicolon which will give us a little copyright symbol, 2019, All rights reserved, that's all the html, check it out, not looking good YET!!
+
+ NOW gonna style  back to CSS 5
+ -->
+
+  <footer id="main-footer" class="py-2">
+    <div class="container footer-container">
+      <div>
+        <img src="newsLogo.png" alt="djsands other logo" class="logo">
+        <h1>Cyber PunkSter</h1>
+        <p>One who enjoys the intellectual challenge of creatively overcoming or circumventing limitations.</p>
+      </div>
+      <div>
+        <h3>Email Newsletter</h3>
+        <p>Keep up-to-date.</p>
+        <form>
+          <input type="email" placeholder="Enter Email...">
+          <input type="submit" value="Subscribe" class="btn btn-primary">
+        </form>
+      </div>
+      <div>
+        <h3>Site Links</h3>
+        <ul class="list">
+          <li><a href="#">Help & Support</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Join Our Club</h3>
+        <p>Join US!</p>
+        <a href="#" class="btn btn-secondary">Join Now</a>
+      </div>
+      <div>
+        <p class="feet">
+          Copyright &copy; 2019, All Rights Reserved
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
